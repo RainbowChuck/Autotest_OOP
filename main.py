@@ -54,13 +54,4 @@ my_todo_list = ToDoList()
 user_interface(my_todo_list)
 
 
-# my_todo_list.list_tasks()
-# my_todo_list.add_task("Task 1")
-# my_todo_list.add_task("Task 2")
-# my_todo_list.add_task(2)
-# my_todo_list.list_tasks()
-# my_todo_list.complete_task("Task 2")
-# my_todo_list.list_tasks()
-# my_todo_list.remove_task("Task 2")
-# my_todo_list.remove_task("Task 4")
-# my_todo_list.list_tasks()
+
