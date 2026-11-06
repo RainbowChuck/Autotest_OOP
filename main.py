@@ -3,7 +3,8 @@ class ToDoList:
         self.tasks = dict()
 
 
-    def add_task(self, task):
+    def add_task(self):
+        task = input("[add_task]: Какую задачу добавить?")
         if isinstance(task, str):
             self.tasks[task] = "◯"
         else:
@@ -11,14 +12,16 @@ class ToDoList:
             return None
 
 
-    def complete_task(self, task):
+    def complete_task(self):
+        task = input("[complete_task]: Какую задачу выполнить? ")
         if task in self.tasks:
             self.tasks[task] = "☑"
         else:
             print(f"[complete_task] : Task '{task}' not found")
 
 
-    def remove_task(self, task):
+    def remove_task(self):
+        task = input("[remove_task]: Какую задачу убрать? ")
         if task in self.tasks:
             del self.tasks[task]
         else:
@@ -29,14 +32,35 @@ class ToDoList:
         print("[list_tasks] : ", self.tasks)
 
 
+def user_interface(todo):
+    menu_options = {
+        "1" : todo.add_task,
+        "2" : todo.remove_task,
+        "3" : todo.list_tasks,
+        "4" : todo.complete_task
+    }
+    while True:
+        choice = input("[user_interface] : Выберете дейстие: ")
+
+        if choice == "5":
+            break
+
+        if choice in menu_options:
+            menu_options[choice]()
+
+
+
 my_todo_list = ToDoList()
-my_todo_list.list_tasks()
-my_todo_list.add_task("Task 1")
-my_todo_list.add_task("Task 2")
-my_todo_list.add_task(2)
-my_todo_list.list_tasks()
-my_todo_list.complete_task("Task 2")
-my_todo_list.list_tasks()
-my_todo_list.remove_task("Task 2")
-my_todo_list.remove_task("Task 4")
-my_todo_list.list_tasks()
+user_interface(my_todo_list)
+
+
+# my_todo_list.list_tasks()
+# my_todo_list.add_task("Task 1")
+# my_todo_list.add_task("Task 2")
+# my_todo_list.add_task(2)
+# my_todo_list.list_tasks()
+# my_todo_list.complete_task("Task 2")
+# my_todo_list.list_tasks()
+# my_todo_list.remove_task("Task 2")
+# my_todo_list.remove_task("Task 4")
+# my_todo_list.list_tasks()
