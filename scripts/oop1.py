@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 import math
-from math import radians
 
 
 class Shape(ABC):
